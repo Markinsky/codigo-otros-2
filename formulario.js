@@ -11,11 +11,12 @@ formulario.onsubmit = function(e) {
   var nombre = n.value;
   var edad = e.value;
 
-  var i = na.selectedIndex;
-  var nacionalidad = na.options[i].value;
+  var nacionalidad = na.value;
+
+  //Asigna los valores
   console.log(nombre, edad);
   console.log(nacionalidad);
-
+ //imprime los inputs
   if (nombre.length === 0) {
     n.classList.add("error");
   }
@@ -27,17 +28,9 @@ if (nombre.length > 0
   && (edad > 18)
     && (edad < 120) ) {
   agregarInvitado(nombre, edad, nacionalidad);
-  }
+  } //Valida que el nombre no sea 0 o menor y que tenga cierto radio de edad
 }
 
-/*
-var botonBorrar = document.createElement("button");
-botonBorrar.textContent = "Eliminar invitado";
-botonBorrar.id = "boton-borrar";
-var corteLinea = document.createElement("br");
-document.body.appendChild(corteLinea);
-document.body.appendChild(botonBorrar);
-*/
 function agregarInvitado(nombre, edad, nacionalidad) {
 
   if (nacionalidad === "ar") {
@@ -51,11 +44,11 @@ function agregarInvitado(nombre, edad, nacionalidad) {
   }
   else if (nacionalidad === "per") {
     nacionalidad = "Peruana";
-  }
+  }//Revisa el resultado del select y da una nacionalidad
   var botonBorrar = document.createElement("button");
 botonBorrar.textContent = "Eliminar invitado";
 botonBorrar.id = "boton-borrar";
-
+//Creación del botón borrar usuario
   botonBorrar.onclick = function() {
     // this.parentNode.style.display = 'none';
     botonBorrar.parentNode.remove();
@@ -72,6 +65,7 @@ var espacio = document.createElement("br");
 inputNombre.value = nombre;
 elementoLista.appendChild(espacio);
 
+
 function crearElemento(descripcion, valor) {
 var spanNombre = document.createElement("span");
 var inputNombre = document.createElement("input");
@@ -81,16 +75,16 @@ inputNombre.value = valor ;
 elementoLista.appendChild(spanNombre);
 elementoLista.appendChild(inputNombre);
 elementoLista.appendChild(espacio);
-}
+}//Agrega los elementos en el DOM
 
 crearElemento("Nombre", nombre);
 crearElemento("Edad", edad);
 crearElemento("Nacionalidad", nacionalidad);
-
+//Envio de elementos
 
 var corteLinea = document.createElement("br");
 elementoLista.appendChild(corteLinea);
 elementoLista.appendChild(botonBorrar);
-
+//Da espacio al DOM
 }
 
