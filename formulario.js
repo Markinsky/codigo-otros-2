@@ -25,7 +25,7 @@ formulario.onsubmit = function(e) {
   }
 
 if (nombre.length > 0 
-  && (edad > 18)
+  && (edad >= 18)
     && (edad < 120) ) {
   agregarInvitado(nombre, edad, nacionalidad);
   } //Valida que el nombre no sea 0 o menor y que tenga cierto radio de edad
@@ -56,7 +56,7 @@ botonBorrar.id = "boton-borrar";
 var lista = document.getElementById("lista-de-invitados");
 
 var elementoLista = document.createElement("div");
-//elementoLista.classList.add("elementoLista");
+elementoLista.className = "elemento-lista";
 lista.appendChild(elementoLista);
 
 
